@@ -1,0 +1,588 @@
+/* CSS Document */
+
+* {
+margin:0;
+padding:0
+} 
+
+body
+{
+margin:0px;
+background-image:url(../images/body_bg.jpg);
+background-repeat:repeat-x;
+background-color:#3F2F22;
+font-family:'Helvetica', Arial, Verdana;
+}
+#dvmaincontainer
+{
+width:900px;
+margin:0px auto;
+}
+#dvmaincontainer #dvtopcontainer
+{
+float:left;
+width:900px;
+margin:0px;
+padding:0px 0px 0px 0px;
+}
+#dvtopcontainer #dvlogocontainer
+{
+float:left;
+width:324px;
+font-size:0px;
+margin:0px;
+padding:0px 71px 0px 0px;
+}
+#dvlogocontainer h1
+{
+float:right;
+width:314px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:31px;
+text-align:right;
+font-weight:bold;
+color:#F8F4D5;
+margin:0px;
+padding:32px 0px 0px 0px;
+}
+#dvlogocontainer h4
+{
+float:right;
+width:198px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:14px;
+text-align:right;
+font-weight:bold;
+color:#BB9F89;
+margin:0px;
+padding:0px 0px 30px 0px;
+}
+#dvtopcontainer #dvnavicontainer
+{
+float:right;
+width:395px;
+font-size:0px;
+margin:0px;
+padding:0px 0px 0px 0px;
+}
+#dvnavicontainer img
+{
+float:left;
+font-size:0px;
+margin:0px;
+padding:0px 0px 0px 0px;
+}
+
+#dvmaincontainer #dvbodycontainer
+{
+float:left;
+width:900px;
+background-image:url(../images/page_bg.jpg);
+background-repeat:repeat-y;
+background-position:top center;
+margin:0px;
+padding:0px 0px 0px 0px;
+}
+#dvbodycontainer #dvbannerbgcontainer
+{
+float:left;
+width:873px;
+height:226px;
+background-image:url(../images/bg.jpg);
+background-repeat:repeat;
+background-position:top;
+border-bottom:1px solid #D5D4CD;
+border-top:1px solid #D5D4CD;
+margin:0px;
+padding:38px 0px 0px 25px;
+}
+#dvbannerbgcontainer .lftcontainer
+{
+float:left;
+width:277px;
+font-size:0px;
+margin:0px;
+padding:0px 0px 0px 0px;
+}
+.lftcontainer .dvbannerleft
+{
+float:left;
+width:277px;
+margin:0px;
+padding:0px 0px 15px 0px;
+}
+.dvbannerleft img
+{
+float:left;
+margin:0px;
+padding:0px 11px 0px 0px;
+font-size:0px;
+}
+.dvbannerleft p
+{
+float:left;
+width:203PX;
+font-size:12px;
+text-align:left;
+color:#424037;
+background-color:#FBF8A8;
+margin:6px 0px 0px 0px;
+padding:6px 0px 5px 8px;
+}
+.dvbannerleft p b
+{
+font-size:13px;
+font-weight:bold;
+}
+#dvbannerbgcontainer #dvbanner
+{
+float:left;
+font-size:0px;
+margin:0px;
+padding:0px 0px 0px 35px;
+}
+#dvbodycontainer #dvleftpanel
+{
+float:left;
+width:274px;
+margin:0px;
+padding:26px 0px 4px 25px;
+}
+#dvleftpanel #topimage
+{
+float:left;
+width:259px;
+font-size:17px;
+margin:0px;
+padding:8px 0px 0px 15px;
+height:23px;
+background-color:#A4051B;
+color:#FFFFFF;
+text-align:center;
+font-weight:bold;
+font-family:'Helvetica', Arial, Verdana;
+voice-family:"\"}\"";
+line-height:18px;
+
+}
+#dvleftpanel #midcont
+{
+float:left;
+width:247px;
+margin:0px;
+padding:25px 0px 4px 25px;
+border-bottom:1px solid #F3F3F3;
+border-left:1px solid #F3F3F3;
+border-right:1px solid #F3F3F3;
+}
+#midcont p
+{
+float:left;
+width:223px;
+font-size:15px;
+text-align:left;
+line-height:18px;
+voice-family:"\"}\"";
+line-height:17px;
+color:#513D2C;
+margin:0px;
+padding:0px;
+padding-bottom:25px;
+
+
+}
+#midcont p span
+{
+float:right;
+text-align:right;
+color:#A5051A;
+font-weight:bold;
+}
+#dvleftpanel #leftfoot
+{
+float:left;
+width:258px;
+background-image:url(../images/left_foot.jpg);
+background-repeat:no-repeat;
+background-position:top;
+margin:12px 0px 0px 0px;
+padding:11px 0px 13px 16px;
+}
+#leftfoot img
+{
+float:left;
+width:46px;
+margin:0px;
+padding:0px 0px 0px 0px;
+}
+#leftfoot p
+{
+float:left;
+width:160px;
+font-size:12px;
+text-align:left;
+color:#6B5F58;
+margin:0px;
+padding:0px 0px 0px 15px;
+}
+#leftfoot span
+{
+float:left;
+width:156px;
+font-size:15px;
+text-align:left;
+font-weight:bold;
+color:#6B5F58;
+margin:0px;
+padding:5px 0px 5px 15px;
+}
+#dvbodycontainer #dvrightpanel
+{
+float:left;
+width:552px;
+margin:0px 0px 0px 20px;
+padding:18px 0px 4px 3px;
+}
+#dvrightpanel h1
+{
+float:left;
+width:395px;
+font-size:20px;
+text-align:left;
+color:#2C1B11;
+margin:0px;
+padding:10px 0px 0px 15px;
+}
+#dvrightpanel p
+{
+float:left;
+width:530px;
+font-size:13px;
+text-align:left;
+voice-family:"\"}\"";
+line-height:16px;
+color:#513D2C;
+margin:0px;
+padding:10px 0px 10px 15px;
+}
+#dvrightpanel .line
+{
+float:left;
+width:533px;
+font-size:0px;
+margin:0px;
+padding:10px 0px 15px 15px;
+}
+#dvrightpanel .learn
+{
+float:left;
+text-align:left;
+font-size:0px;
+margin:0px;
+padding:0px 0px 14px 445px;
+}
+
+#dvrightpanel .learn span
+{
+height:20px;
+width:140px;
+font-size:10px;
+color:#FFFFFF;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+}
+#dvrightpanel .learn span a
+{
+background-image:url(../images/learn.jpg);
+background-repeat:no-repeat;
+
+width:140px;
+height:30px;
+font-size:10px;
+color:#FFFFFF;
+padding-right:20px;
+text-decoration:none;
+padding-top:8px;
+voice-family:"\"}\"";
+line-height:17px;
+
+}
+#dvrightpanel .learn span a:hover
+{
+background-image:url(../images/learn_over.jpg);
+background-repeat:no-repeat;
+width:130px;
+color:#FFFFFF;
+text-decoration:none;
+}
+
+
+
+#dvrightpanel .learn a 
+{
+background-image:url(../images/learn.jpg);
+background-repeat:no-repeat;
+background-position:center;
+height:20px;
+width:97px;
+font-size:11px;
+color:#FFFFFF;
+padding-bottom:10px;
+padding-left:11px;
+padding-top:3px;
+
+
+}
+
+#dvrightpanel .learn a:hover 
+{
+background-image:url(../images/learn_over.jpg);
+background-repeat:no-repeat;
+height:20px;
+width:97px;
+padding-bottom:10px;
+color:#FFFFFF;
+}
+
+
+
+#dvrightpanel #righttfoot
+{
+float:left;
+width:556px;
+height:59px;
+background-image:url(../images/right_foot.jpg);
+background-repeat:no-repeat;
+background-position:top;
+margin:20px 0px 0px 0px;
+padding:11px 0px 13px 0px;
+}
+#righttfoot img
+{
+float:left;
+margin:0px;
+font-size:0px;
+padding:0px 0px 0px 10px;
+}
+#righttfoot p
+{
+float:left;
+width:97px;
+font-size:13px;
+text-align:left;
+color:#513D2C;
+margin:0px;
+padding:0px 12px 0px 12px;
+}
+#dvmaincontainer #dvfootercontainer
+{
+float:left;
+width:900px;
+margin:0px;
+padding:0px 0px 0px 0px;
+}
+#dvfootercontainer #foottop
+{
+float:left;
+width:900px;
+background-image:url(../images/footer.jpg);
+background-repeat:no-repeat;
+background-position:top center;
+margin:0px;
+padding:0px 0px 50px 0px;
+}
+#foottop p
+{
+float:left;
+font-size:12px;
+text-align:left;
+color:#938A82;
+margin:0px;
+padding:25px 0px 0px 20px;
+}
+#foottop p a 
+{
+text-decoration:none;
+color:#938A82;
+padding-left:5px;
+padding-right:5px;
+}
+#foottop p a:hover
+{
+text-decoration:underline;
+color:#938A82;
+}
+#foottop p span
+{
+padding:0px 10px 0px 0px;
+}
+.design
+{
+float:left;
+width:154px;
+margin:0px;
+padding:0px;
+font-size:0px;
+padding-left:80px;
+padding-top:13px;
+}
+
+
+/*- Menu Tabs 1--------------------------- */ 
+
+
+    #tabs1 {
+      float:left;
+    
+	  background:#FAF6DB;
+      font-size:15px;
+      line-height:normal;
+	  font-family:Helvetica, sans-serif;
+	  font-weight:bold;
+	  padding-top:10px; 
+	  padding-bottom:5px;
+	  height:26px;
+	  margin:0px;
+	  line-height:normal;
+	  
+	   /*   height:100%;Fix for MSIE peekaboo bug */
+	 
+      }
+    #tabs1 ul {
+	  margin:0;
+	 list-style:none;
+	  float:left;
+	 padding:0px;
+	 
+      }
+    #tabs1 li {
+      display:inline;
+      margin:0;
+      padding:0;
+	  voice-family:"\"}\"";
+	  line-height:16px;
+	  height:25px;
+	  float:left;
+	  
+	  
+      }
+    #tabs1 a {
+      float:left;
+      background:url("../images/tableft1.gif") no-repeat left top;
+      margin:0;
+      padding:0 0 0 4px;
+      text-decoration:none;
+	  
+      }
+    #tabs1 a span {
+      float:left;
+      display:block;
+      background:url("../images/tabright1.gif") no-repeat right top;
+	  color:#2C1C0F;
+      padding:3px 9px 6px 5px; 
+	  voice-family:"\"}\"";
+	  padding-top:2px;
+	  
+	  
+	
+	  
+	
+     
+      }
+    /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    #tabs1 a span {float:none;}
+    /* End IE5-Mac hack */
+    #tabs a:hover span {
+      color:#FFFFFF;
+	  
+      }
+    #tabs1 a:hover {
+      background-position:0% -42px;
+	   color:#FFFFFF;
+      }
+    #tabs1 a:hover span {
+      background-position:100% -42px;
+	   color:#FFFFFF;
+      }
+
+      #tabs1 #current a {
+      	background-position:0% -42px;
+		 color:#FFFFFF;
+      }
+      #tabs1 #current a span {
+      	background-position:100% -42px;
+		 color:#FFFFFF;
+      }
+	  
+	  /*-----------------------------Menu ------------------------------*/
+	  
+	  img {
+border: none;
+} 
+
+/*- Menu Tabs 3--------------------------- */
+
+    #tabs3 {
+      float:left;
+      width:362px;
+      font-size:14px;
+	  font-family:Arial, Helvetica, sans-serif;
+      line-height:normal;
+	  background:#FAF6DB;
+	  font-weight:bold;
+	  
+	  
+	  
+      }
+    #tabs3 ul {
+	  margin:0;
+	  padding:10px 5px 5px 0px;
+	  list-style:none;
+	  line-height:21px;
+      }
+    #tabs3 li {
+      display:inline;
+      margin:0;
+      padding:0;
+	 
+      }
+    #tabs3 a {
+      float:left;
+      background:url("../images/tableft3.gif") no-repeat left top;
+      margin:0;
+      padding:0 0 0 0px;
+      text-decoration:none;
+      }
+    #tabs3 a span {
+      float:left;
+      display:block;
+      background:url("../images/tabright3.gif") no-repeat right top;
+      padding:7px 0px 4px 0px;
+      color:#2C1B11;
+	  line-height:14px;
+	  height:20px;
+      }
+	    #tabs3 a span {float:none;
+		border:1px solid red;}
+    /* Commented Backslash Hack hides rule fr
+	om IE5-Mac \*/
+    #tabs3 a span {float:none;}
+    /* End IE5-Mac hack */
+    #tabs3 a:hover span {
+      color:#FFF;
+      }
+    #tabs3 a:hover {
+      background-position:0% -42px;
+      }
+    #tabs3 a:hover span {
+      background-position:100% -42px;
+      }  
+
+      #tabs3 #current a {
+      	background-position:0% -42px;
+		color:#FFFFFF
+      }
+      #tabs3 #current a span {
+      	background-position:100% -42px;
+		color:#FFFFFF
+      }

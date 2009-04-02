@@ -1,10 +1,11 @@
 <%- @scripts = [] unless @scripts -%>
 <%- @scripts << 'application' -%>
 <h1>Find Social Friends</h1>
-<p>Find me in app/views/search/results.html.erb</p>
 <%= render :partial => "/basic_search_form" %>
 <h1>Results</h1>
 <div id='search_results'>
+    <%- @results = [] unless @results -%>
+    <%= "No search results found" unless @results.size > 0 %>
     <%- @results.each_index do |i| -%>
         <%- result = @results[i] -%>
         <div class="action" id="action<%= i %>"> 
@@ -31,6 +32,9 @@
                     <div class="twitterers" id="twitterers<%= i %>">
                         <h3>People on Twitter referring to this action:</h3>
                         <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %> Checking for references on Twitter...
+                    </div>
+                    <div>
+                        <a href="http://twitter.com/home?status=<%= CGI::escape("This looks like a worthy cause: #{h(result.url)} (Please Retweet)") %>">Tweet this action</a>
                     </div>
             </div>
     <%- end -%>

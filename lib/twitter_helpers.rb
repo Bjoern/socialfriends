@@ -3,19 +3,20 @@ require 'twitter'
 module SocialActions
     class TwitterHelpers
         def TwitterHelpers.find_people_tweeting_words(words, users_per_page = 10, page = 1)
+            puts "find people tweeting words"
             max_users = users_per_page * page
             @users = {}
             words.each do |word|
                 p = 1 #results page
                 results = nil
                 while @users.size < max_users && (results == nil || results.size > 0)
-                    # puts "word: #{word}, page: #{p}"
+                    puts "word: #{word}, page: #{p}"
                     search = Twitter::Search.new(word)
                     search.per_page(100)
                     search.page(p)
                     results = search.fetch.results
                     results.each do |result|
-                        ## puts result.inspect
+                        puts result.inspect
                         user = result.from_user
                         @users[user] = result unless @users[user]
                         puts @users.size

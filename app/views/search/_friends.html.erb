@@ -1,4 +1,8 @@
-<%= "No references on Twitter found" unless @users %>
+<%- if flash[:notice] -%>
+    <span><%= h(flash[:notice]) %></span>
+<%- end -%>
+<%- @users = [] unless @users -%>
+<%= "No references on Twitter found" unless @users.size > 0 %>
 <%- @users.each do |user| -%>
     <span class="user">
         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>

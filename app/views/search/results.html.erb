@@ -1,10 +1,14 @@
 <%- @scripts = [] unless @scripts -%>
 <%- @scripts << 'application' -%>
 <h1>Find Social Friends</h1>
-<p>Find me in app/views/search/results.html.erb</p>
 <%= render :partial => "/basic_search_form" %>
 <h1>Results</h1>
+<%- if flash[:notice] -%>
+    <div class="flash_notice"><%= h(flash[:notice]) %></div>
+<%- end -%>
 <div id='search_results'>
+    <%- @results = [] unless @results -%>
+    <%= "No search results found" unless @results.size > 0 %>
     <%- @results.each_index do |i| -%>
         <%- result = @results[i] -%>
         <div class="action" id="action<%= i %>"> 
