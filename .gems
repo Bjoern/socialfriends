@@ -1,2 +1,3 @@
-httparty --source gems.github.com
+jnunemaker-crack --source gems.github.com
+httparty
 json
