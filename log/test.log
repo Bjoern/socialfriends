@@ -19,3 +19,7 @@ Processing SearchController#results (for 0.0.0.0 at 2009-03-31 19:10:41) [GET]
 Rendering template within layouts/application
 Rendering search/results
 Completed in 7521ms (View: 6, DB: 0) | 200 OK [http://test.host/search/results?q=burma]
+
+
+Processing SearchController#results (for 0.0.0.0 at 2009-04-02 22:00:46) [GET]
+  Parameters: {"q"=>"burma"}

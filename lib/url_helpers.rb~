@@ -42,7 +42,7 @@ module SocialActions
             puts "escaped_url: #{escaped_url}"
             query_url = "http://tinyurl.com/api-create.php?url="+escaped_url
             uri = URI.parse(query_url)
-            Net::HTTP.get(query_url)
+            Net::HTTP.get(uri)
         end
     end
 end

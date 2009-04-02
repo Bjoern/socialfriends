@@ -1,0 +1,6 @@
+<%= "No references found" unless @users %>
+<%- @users.each do |user| -%>
+    <span class="user">
+        <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+    </span>
+<%- end -%>

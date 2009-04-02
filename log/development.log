@@ -246,3 +246,2002 @@ Rendering template within layouts/application
 Rendering search/results
 Rendered _basic_search_form (0.6ms)
 Completed in 6016ms (View: 4, DB: 0) | 200 OK [http://localhost/search/results?q=Aung+San+Suu&created=all&commit=Search]
+
+
+Processing SearchController#index (for ::1 at 2009-04-02 13:33:09) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (2.5ms)
+Completed in 66ms (View: 64, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 13:33:13) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.6ms)
+Completed in 7134ms (View: 15, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#index (for ::1 at 2009-04-02 17:25:36) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (0.5ms)
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#index (for ::1 at 2009-04-02 17:25:40) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (0.6ms)
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#index (for ::1 at 2009-04-02 17:26:06) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (0.5ms)
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#index (for ::1 at 2009-04-02 17:32:24) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (0.5ms)
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 17:32:28) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 5766ms (View: 10, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 17:33:26) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 5119ms (View: 9, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 17:46:32) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+ERROR: compiling _run_erb_app47views47search47results46html46erb RAISED /Users/bjoern/Documents/projects/socialFriends/app/views/search/results.html.erb:33: syntax error, unexpected ':', expecting ')'
+...( image_tag 'ajax-loader.gif' :alt => 'Loading').to_s); @out...
+...                               ^
+Function body:           def _run_erb_app47views47search47results46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  @scripts = [] unless @scripts 
+ @scripts << 'application' 
+@output_buffer.concat "<h1>Find Social Friends</h1>\n<p>Find me in app/views/search/results.html.erb</p>\n"
+
+; @output_buffer.concat(( render :partial => "/basic_search_form" ).to_s); @output_buffer.concat "\n<h1>Results</h1>\n<div id='search_results'>\n"
+
+
+;  @results.each_index do |i| 
+ result = @results[i] 
+@output_buffer.concat "        <div class=\"action\" id=\"action"; @output_buffer.concat(( i ).to_s); @output_buffer.concat "\"> \n            <a id=\"action_url"
+; @output_buffer.concat(( i ).to_s); @output_buffer.concat "\" href=\""; @output_buffer.concat(( h(result.url) ).to_s); @output_buffer.concat "\" class=\"action-title\">"; @output_buffer.concat(( h(result.title) ).to_s); @output_buffer.concat "</a>\n                    <div class=\"action-description\">\n                         "
+
+; @output_buffer.concat(( result.description ).to_s); @output_buffer.concat "\n                    </div>\n\n                    <div class='action-details'>\n                            <span class='action-type'>"
+
+
+
+; @output_buffer.concat(( h(result.action_type[:name]) ).to_s); @output_buffer.concat "</span>\n                      created\n                      <span class='action-created'>"
+
+; @output_buffer.concat(( h(result.created_at) ).to_s); @output_buffer.concat "</span>\n                      on\n                      <a href=\""
+
+; @output_buffer.concat(( h(result.site[:url]) ).to_s); @output_buffer.concat "\">"; @output_buffer.concat(( h(result.site[:name]) ).to_s); @output_buffer.concat "</a>\n                      <span class='action-hitcount'>\n                        views:\n                      </span>\n                        "
+
+
+
+; @output_buffer.concat(( h(result.hit_count) ).to_s); @output_buffer.concat " \n                      <span class='action-referrercount'>\n                        unique referrers:\n                      </span>\n                        "
+
+
+
+; @output_buffer.concat(( h(result.referrer_count) ).to_s); @output_buffer.concat "\n                    </div>\n                    <div class=\"twitterers\" id=\"twitterers"
+
+; @output_buffer.concat(( i ).to_s); @output_buffer.concat "\">\n                        <h3>People on Twitter referring to this action:</h3>\n                        "
+
+; @output_buffer.concat(( image_tag 'ajax-loader.gif' :alt => 'Loading').to_s); @output_buffer.concat " Checking for references on Twitter...\n                    </div>\n            </div>\n"
+
+
+;  end 
+@output_buffer.concat "<div>\n"
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:77:in `module_eval'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:77:in `compile!'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+/opt/local/lib/ruby1.9/1.9.1/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+/opt/local/lib/ruby1.9/1.9.1/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action_with_flash'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process_with_filters'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `block in initialize'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `block in call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `block in call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:46:in `service'
+/opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+/opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+/opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+ActionView::TemplateError (/Users/bjoern/Documents/projects/socialFriends/app/views/search/results.html.erb:33: syntax error, unexpected ':', expecting ')'
+...( image_tag 'ajax-loader.gif' :alt => 'Loading').to_s); @out...
+...                               ^) on line #33 of app/views/search/results.html.erb:
+30:                     </div>
+31:                     <div class="twitterers" id="twitterers<%= i %>">
+32:                         <h3>People on Twitter referring to this action:</h3>
+33:                         <%= image_tag 'ajax-loader.gif' :alt => 'Loading'%> Checking for references on Twitter...
+34:                     </div>
+35:             </div>
+36:     <%- end -%>
+
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (88.3ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 17:47:21) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 6180ms (View: 12, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 17:47:54) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 5329ms (View: 12, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 18:23:21) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 6628ms (View: 20, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:33) [POST]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (94.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:34) [POST]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:36) [POST]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (78.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:37) [POST]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:38) [POST]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (70.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:39) [POST]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (118.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:40) [POST]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (69.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:41) [POST]
+  Parameters: {"url"=>"http://socialactions.net/l88"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (69.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:42) [POST]
+  Parameters: {"url"=>"http://socialactions.net/l86"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (118.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:23:43) [POST]
+  Parameters: {"url"=>"http://socialactions.net/l87"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (69.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 18:25:28) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 7462ms (View: 6, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:37) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+Rendering search/friends
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2FldO]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:38) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+Rendering search/friends
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2FlcR]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:39) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Flc5]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:40) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Flc3]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:41) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2FlbV]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:42) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Flbh]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:43) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Flbf]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:43) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l88"}
+Rendering search/friends
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Fl88]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:44) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l86"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Fl86]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:25:45) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l87"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Fl87]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:29:09) [GET]
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 18:30:56) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.7ms)
+Completed in 5498ms (View: 6, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:05) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2FldO]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:06) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2FlcR]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:07) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+Rendering search/friends
+Completed in 47ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Flc5]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:09) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Flc3]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:11) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2FlbV]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:12) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Flbh]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:14) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Flbf]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:16) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l88"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Fl88]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:17) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l86"}
+Rendering search/friends
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Fl86]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 18:31:18) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l87"}
+Rendering search/friends
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/search/friends?url=http%3A%2F%2Fsocialactions.net%2Fl87]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 18:33:05) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 6095ms (View: 5, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:14) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:20) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:21) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:22) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:22) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:24) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:25) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:32) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l88"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:33) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l86"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:34) [GET]
+  Parameters: {"url"=>"http://socialactions.net/l87"}
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#friendss (for ::1 at 2009-04-02 18:33:56) [GET]
+
+ActionController::UnknownAction (No action responded to friendss. Actions: friends, index, and results):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 18:34:48) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search", "limit"=>"1"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.7ms)
+Completed in 4974ms (View: 6, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search&limit=1]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 18:36:09) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search", "limit"=>"1"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 5724ms (View: 6, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search&limit=1]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 18:42:27) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search", "limit"=>"1"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 6603ms (View: 5, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search&limit=1]
+
+
+Processing SearchController#index (for ::1 at 2009-04-02 21:34:47) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (0.6ms)
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 21:34:54) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 6234ms (View: 5, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:04) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:22) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leB"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (67.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:23) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leC"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (70.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:24) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (121.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:25) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (64.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:25) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (115.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:26) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (70.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:27) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:28) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (64.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:35:29) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (70.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 21:37:53) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (74.7ms)
+Completed in 6152ms (View: 103, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:01) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (72.3ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:02) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leB"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (124.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:03) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leC"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (71.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:04) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:05) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (64.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:06) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (69.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:07) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (117.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:08) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:09) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (116.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:38:10) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/url_helpers.rb to define UrlHelpers):
+  app/controllers/search_controller.rb:19:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (69.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 21:39:24) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 6963ms (View: 5, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:31) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (64.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:33) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leC"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (65.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:35) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (64.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:37) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leB"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (64.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:38) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (115.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:41) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:43) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (114.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:50) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (62.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:51) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (63.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:39:52) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:30:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (65.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 21:40:08) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 9897ms (View: 6, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:18) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (106.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:19) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leC"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (64.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:23) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leB"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (62.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:24) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (63.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:25) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (63.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:32) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (63.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:35) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:40) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (112.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:41) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (61.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:40:42) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (112.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 21:42:57) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.6ms)
+Completed in 4235ms (View: 5, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:01) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leO"}
+
+LoadError (Expected /Users/bjoern/Documents/projects/socialFriends/lib/twitter_helpers.rb to define TwitterHelpers):
+  app/controllers/search_controller.rb:31:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (64.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:03) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leB"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (72.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:06) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leC"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (75.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:09) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (69.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:12) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (119.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:14) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (72.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:17) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (119.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:21) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (73.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:23) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (124.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 21:43:27) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (72.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 22:03:09) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.6ms)
+Completed in 31403ms (View: 51, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:03:41) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leO"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (71.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:04:10) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leB"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (117.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:05:01) [GET]
+  Parameters: {"url"=>"http://socialactions.net/leC"}
+Rendering search/friends
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/search/friends.html.erb:
+1: <%= "No references found" unless @users %>
+2: <%- @users.each do |user| -%>
+3:     <span class="user">
+4:         <img src="<%= user.profile_image_url %>" alt="<%= user.from_user %>"/>
+5:     </span>
+
+    app/views/search/friends.html.erb:2
+    app/controllers/search_controller.rb:32:in `friends'
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (71.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:06:01) [GET]
+  Parameters: {"url"=>"http://socialactions.net/ldO"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:860:in `head'
+  lib/url_helpers.rb:26:in `block in resolve_redirects'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:453:in `start'
+  lib/url_helpers.rb:21:in `resolve_redirects'
+  lib/url_helpers.rb:34:in `resolve_redirects'
+  app/controllers/search_controller.rb:21:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (118.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:07:01) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lcR"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:860:in `head'
+  lib/url_helpers.rb:26:in `block in resolve_redirects'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:453:in `start'
+  lib/url_helpers.rb:21:in `resolve_redirects'
+  lib/url_helpers.rb:34:in `resolve_redirects'
+  app/controllers/search_controller.rb:21:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (70.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:08:57) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc5"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:860:in `head'
+  lib/url_helpers.rb:26:in `block in resolve_redirects'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:453:in `start'
+  lib/url_helpers.rb:21:in `resolve_redirects'
+  app/controllers/search_controller.rb:21:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (111.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:10:01) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lc3"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:860:in `head'
+  lib/url_helpers.rb:26:in `block in resolve_redirects'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:453:in `start'
+  lib/url_helpers.rb:21:in `resolve_redirects'
+  app/controllers/search_controller.rb:21:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (67.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:11:01) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbV"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:860:in `head'
+  lib/url_helpers.rb:26:in `block in resolve_redirects'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:453:in `start'
+  lib/url_helpers.rb:21:in `resolve_redirects'
+  app/controllers/search_controller.rb:21:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (118.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:12:03) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbh"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:860:in `head'
+  lib/url_helpers.rb:26:in `block in resolve_redirects'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:453:in `start'
+  lib/url_helpers.rb:21:in `resolve_redirects'
+  app/controllers/search_controller.rb:21:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (67.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#friends (for ::1 at 2009-04-02 22:13:10) [GET]
+  Parameters: {"url"=>"http://socialactions.net/lbf"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:860:in `head'
+  lib/url_helpers.rb:26:in `block in resolve_redirects'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:453:in `start'
+  lib/url_helpers.rb:21:in `resolve_redirects'
+  app/controllers/search_controller.rb:21:in `friends'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (69.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 22:14:13) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1096:in `block in request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1094:in `request'
+  httparty (0.4.1) lib/httparty/request.rb:69:in `perform_actual_request'
+  httparty (0.4.1) lib/httparty/request.rb:73:in `get_response'
+  httparty (0.4.1) lib/httparty/request.rb:40:in `perform'
+  httparty (0.4.1) lib/httparty.rb:155:in `perform_request'
+  httparty (0.4.1) lib/httparty.rb:121:in `get'
+  lib/social_actions/search.rb:102:in `fetch'
+  app/controllers/search_controller.rb:12:in `results'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (71.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 22:25:12) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1096:in `block in request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1094:in `request'
+  httparty (0.4.1) lib/httparty/request.rb:69:in `perform_actual_request'
+  httparty (0.4.1) lib/httparty/request.rb:73:in `get_response'
+  httparty (0.4.1) lib/httparty/request.rb:40:in `perform'
+  httparty (0.4.1) lib/httparty.rb:155:in `perform_request'
+  httparty (0.4.1) lib/httparty.rb:121:in `get'
+  lib/social_actions/search.rb:102:in `fetch'
+  app/controllers/search_controller.rb:12:in `results'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (72.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 22:39:47) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1096:in `block in request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1094:in `request'
+  httparty (0.4.1) lib/httparty/request.rb:69:in `perform_actual_request'
+  httparty (0.4.1) lib/httparty/request.rb:73:in `get_response'
+  httparty (0.4.1) lib/httparty/request.rb:40:in `perform'
+  httparty (0.4.1) lib/httparty.rb:155:in `perform_request'
+  httparty (0.4.1) lib/httparty.rb:121:in `get'
+  lib/social_actions/search.rb:102:in `fetch'
+  app/controllers/search_controller.rb:12:in `results'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (72.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 22:43:17) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1096:in `block in request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1094:in `request'
+  httparty (0.4.1) lib/httparty/request.rb:69:in `perform_actual_request'
+  httparty (0.4.1) lib/httparty/request.rb:73:in `get_response'
+  httparty (0.4.1) lib/httparty/request.rb:40:in `perform'
+  httparty (0.4.1) lib/httparty.rb:155:in `perform_request'
+  httparty (0.4.1) lib/httparty.rb:121:in `get'
+  lib/social_actions/search.rb:102:in `fetch'
+  app/controllers/search_controller.rb:12:in `results'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#results (for ::1 at 2009-04-02 22:53:40) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+
+Timeout::Error (execution expired):
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `sysread'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:135:in `block in rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:134:in `rbuf_fill'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:116:in `readuntil'
+  /opt/local/lib/ruby1.9/1.9.1/net/protocol.rb:126:in `readline'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2135:in `read_status_line'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:2124:in `read_new'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1117:in `transport_request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1103:in `request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1096:in `block in request'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:564:in `start'
+  /opt/local/lib/ruby1.9/1.9.1/net/http.rb:1094:in `request'
+  httparty (0.4.1) lib/httparty/request.rb:69:in `perform_actual_request'
+  httparty (0.4.1) lib/httparty/request.rb:73:in `get_response'
+  httparty (0.4.1) lib/httparty/request.rb:40:in `perform'
+  httparty (0.4.1) lib/httparty.rb:155:in `perform_request'
+  httparty (0.4.1) lib/httparty.rb:121:in `get'
+  lib/social_actions/search.rb:102:in `fetch'
+  app/controllers/search_controller.rb:12:in `results'
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (73.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)

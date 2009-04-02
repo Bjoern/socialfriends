@@ -99,13 +99,14 @@ module SocialActions
         # If you want to get results do something other than iterate over them.
         def fetch
                 @query[:q] = @query[:q].join(' ')
-                self.class.get('/actions.json', {:query => @query})
+                results = self.class.get('/actions.json', {:query => @query})
+                results.map{|r| SearchResult.new_from_hash(r)}
         end
     
     
         def each
                 @result = fetch()
-                @result['results'].each { |r| yield r }
+                @result.each { |r| yield r }
         end 
 	
       end
