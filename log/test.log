@@ -1,0 +1,21 @@
+
+
+Processing SearchController#results (for 0.0.0.0 at 2009-03-31 18:57:11) [GET]
+  Parameters: {"q"=>"burma"}
+Rendering template within layouts/application
+Rendering search/results
+Completed in 5973ms (View: 5, DB: 0) | 200 OK [http://test.host/search/results?q=burma]
+
+
+Processing SearchController#results (for 0.0.0.0 at 2009-03-31 18:57:49) [GET]
+  Parameters: {"q"=>"burma"}
+Rendering template within layouts/application
+Rendering search/results
+Completed in 557ms (View: 5, DB: 0) | 200 OK [http://test.host/search/results?q=burma]
+
+
+Processing SearchController#results (for 0.0.0.0 at 2009-03-31 19:10:41) [GET]
+  Parameters: {"q"=>"burma"}
+Rendering template within layouts/application
+Rendering search/results
+Completed in 7521ms (View: 6, DB: 0) | 200 OK [http://test.host/search/results?q=burma]

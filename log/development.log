@@ -1,0 +1,248 @@
+
+
+Processing ApplicationController#index (for ::1 at 2009-03-31 12:47:10) [GET]
+
+NameError (uninitialized constant HomeController):
+  <internal:prelude>:8:in `synchronize'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+  /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (65.1ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#index (for ::1 at 2009-03-31 13:10:25) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Completed in 17ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#index (for ::1 at 2009-03-31 13:11:39) [GET]
+Rendering template within layouts/application
+Rendering search/index
+
+ActionView::TemplateError (Missing template search/_basic_search_form.erb in view path app/views) on line #3 of app/views/search/index.html.erb:
+1: <h1>Search#index</h1>
+2: <p>Find me in app/views/search/index.html.erb</p>
+3: <%= render :partial => "basic_search_form" %> 
+
+    app/views/search/index.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (129.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#index (for ::1 at 2009-03-31 13:12:58) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (0.7ms)
+Completed in 16ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#index (for ::1 at 2009-03-31 19:20:01) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (0.1ms)
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#index (for ::1 at 2009-03-31 19:28:02) [GET]
+Rendering template within layouts/application
+Rendering search/index
+ERROR: compiling _run_erb_app47views47_basic_search_form46html46erb_locals_basic_search_form_object RAISED /Users/bjoern/Documents/projects/socialFriends/app/views/_basic_search_form.html.erb:20: syntax error, unexpected keyword_ensure, expecting $end
+Function body:           def _run_erb_app47views47_basic_search_form46html46erb_locals_basic_search_form_object(local_assigns)
+            old_output_buffer = output_buffer;basic_search_form = local_assigns[:basic_search_form];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<div class='search_box' id='search_basic'>\n        "
+;  form_tag({:controller => "search", :action => "results"}, :method => "get", :class => "search_form") ; @output_buffer.concat "\n                Search Term:\n                "
+
+; @output_buffer.concat(( text_field_tag(:q, "bla", :size =>' 22') ).to_s); @output_buffer.concat "  \n                Created:\n                <select id=\"created\" name=\"created\">\n                        <option value=\"all\" selected=\"selected\">Any Time</option>\n                        <option value=\"30\">Last 30 days</option>\n                        <option value=\"14\">Last 14 days</option>\n                        <option value=\"7\">Last week</option>\n                        <option value=\"1\">Yesterday</option>\n                        <option value=\"0\">Today</option>\n                </select>\n                &nbsp;\n                "
+
+
+
+
+
+
+
+
+
+
+; @output_buffer.concat(( submit_tag("Search") ).to_s); @output_buffer.concat " \n        "
+;  end ; @output_buffer.concat " \n</div>\n\n"
+
+
+; @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:77:in `module_eval'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:77:in `compile!'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:20:in `block in render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:26:in `block in benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+/opt/local/lib/ruby1.9/1.9.1/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:19:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/partials.rb:184:in `render_partial'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/base.rb:262:in `render'
+/Users/bjoern/Documents/projects/socialFriends/app/views/search/index.html.erb:3:in `_run_erb_app47views47search47index46html46erb'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:34:in `block in render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/base.rb:301:in `with_template'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/renderable.rb:30:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+/opt/local/lib/ruby1.9/1.9.1/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+/opt/local/lib/ruby1.9/1.9.1/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action_with_flash'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process_with_filters'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `block in initialize'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `block in call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `block in call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:46:in `service'
+/opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+/opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+/opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+ActionView::TemplateError (/Users/bjoern/Documents/projects/socialFriends/app/views/_basic_search_form.html.erb:20: syntax error, unexpected keyword_ensure, expecting $end) on line #20 of app/views/_basic_search_form.html.erb:
+17: </div>
+
+    app/views/search/index.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:111:in `service'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/httpserver.rb:70:in `run'
+    /opt/local/lib/ruby1.9/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (135.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SearchController#index (for ::1 at 2009-03-31 19:29:05) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (1.8ms)
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#index (for ::1 at 2009-03-31 20:30:45) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (1.3ms)
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#index (for ::1 at 2009-03-31 21:08:53) [GET]
+Rendering template within layouts/application
+Rendering search/index
+Rendered _basic_search_form (0.5ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#results (for ::1 at 2009-03-31 21:09:00) [GET]
+  Parameters: {"q"=>"burma", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 8998ms (View: 12, DB: 0) | 200 OK [http://localhost/search/results?q=burma&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-03-31 21:09:30) [GET]
+  Parameters: {"q"=>"dogs", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 6602ms (View: 5, DB: 0) | 200 OK [http://localhost/search/results?q=dogs&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-03-31 21:10:02) [GET]
+  Parameters: {"q"=>"burma", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.6ms)
+Completed in 6806ms (View: 5, DB: 0) | 200 OK [http://localhost/search/results?q=burma&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-03-31 21:11:25) [GET]
+  Parameters: {"q"=>"burma", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.7ms)
+Completed in 4873ms (View: 10, DB: 0) | 200 OK [http://localhost/search/results?q=burma&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-03-31 21:11:54) [GET]
+  Parameters: {"q"=>"burma", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.6ms)
+Completed in 5675ms (View: 10, DB: 0) | 200 OK [http://localhost/search/results?q=burma&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-03-31 21:12:15) [GET]
+  Parameters: {"q"=>"Aung San Suu", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.5ms)
+Completed in 5463ms (View: 3, DB: 0) | 200 OK [http://localhost/search/results?q=Aung+San+Suu&created=all&commit=Search]
+
+
+Processing SearchController#results (for ::1 at 2009-03-31 22:05:40) [GET]
+  Parameters: {"q"=>"Aung San Suu", "created"=>"all", "commit"=>"Search"}
+Rendering template within layouts/application
+Rendering search/results
+Rendered _basic_search_form (0.6ms)
+Completed in 6016ms (View: 4, DB: 0) | 200 OK [http://localhost/search/results?q=Aung+San+Suu&created=all&commit=Search]
