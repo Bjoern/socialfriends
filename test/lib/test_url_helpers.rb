@@ -4,6 +4,7 @@ require 'test/unit'
 require 'url_helpers'
 
 class TestUrlHelpers < Test::Unit::TestCase
+
     def test_resolution
         @tinyurl = 'http://tinyurl.com/dbbzg'
         @url = 'http://www.heise.de/'
