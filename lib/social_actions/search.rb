@@ -1,13 +1,16 @@
 #interface to the socialactions.com web service
 #inspired by jnunemakers twitter gem
 
-require 'httparty'
+require 'net/http'
+require 'json'
+require 'cgi'
+require 'uri'
+
 module SocialActions
     class Search
-        include HTTParty
+        #include HTTParty
         include Enumerable
 
-        base_uri 'http://search.socialactions.com/'
         # basic_auth 'username', 'password'
 
 
@@ -99,7 +102,9 @@ module SocialActions
         # If you want to get results do something other than iterate over them.
         def fetch
             @query[:q] = @query[:q].join(' ')
-            results = self.class.get('/actions.json', {:query => @query})
+            q = @query.map{|key,value| "#{key}=#{CGI::escape(value) if value}"}.join('&')
+            result = Net::HTTP.get(URI::HTTP.build({:host => 'search.socialactions.com', :path => '/actions.json', :query => q}))
+            results = JSON.parse(result)
             results.map{|r| SearchResult.new_from_hash(r)}
         end
 
