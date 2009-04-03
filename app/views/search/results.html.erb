@@ -19,18 +19,18 @@
 
                 <div class='action-details'>
                     <span class='action-type action-info'><%= h(result.action_type['name']) %></span>
-                    created
+                    <span>Created</span>
                     <span class='action-created action-info'><%= h(result.created_at) %></span>
                     on
                     <a href="<%= h(result.site['url']) %>"><%= h(result.site['name']) %></a>
-                    <span class='action-hitcount action-info'>
-                        views:
+                    <span>Views: </span>
+                    <span class="action-hitcount action-info">
+                        <%= h(result.hit_count) %> 
                     </span>
-                    <%= h(result.hit_count) %> 
-                    <span class='action-referrercount action-info'>
-                        unique referrers:
+                    <span>
+                        Unique Referrers:
                     </span>
-                    <%= h(result.referrer_count) %>
+                    <span class="action-info"><%= h(result.referrer_count) %></span>
                 </div>
             </div>
             <div class="yui-u">

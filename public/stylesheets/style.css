@@ -2,3 +2,14 @@
     font-weight: bold;
     color: green;
 }
+#ft {
+    margin-top: 20px;
+}
+a, a:hover, a:visited {
+    font-weight: bold;
+    color: green;
+}
+
+h3 a {
+    color: blue;
+}
