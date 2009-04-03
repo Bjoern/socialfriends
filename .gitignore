@@ -1,6 +1,7 @@
 *~
 .DS_Store
 tmp/
+log/
 *.swp
 .swo
 jferris-*.gemspec
