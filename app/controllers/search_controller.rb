@@ -16,8 +16,21 @@ class SearchController < ApplicationController
         search.limit(params[:limit])
         @results = search.fetch
         @results = [] unless @results
-        pp @results
         #pp @results
+        max_length = 700 #TODO move to config file
+
+        #TODO horribly inefficient code
+        @results.each do |result|
+            if  result['description']
+                #result['description'].gsub(/<p>/,'<br/><br/>')
+                length = result['description'].length
+                if length > max_length
+                    result['description'] = result['description'][0,700]
+                    result['description'].sub!(/\S*\Z/,'')      
+                    result['description'] += '...'
+                end
+            end
+        end
     end
 
     def friends

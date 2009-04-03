@@ -14,7 +14,7 @@
 
                 <h3><a id="action_url<%= i %>" href="<%= h(result.url) %>" class="action-title"><%= h(result.title) %></a></h3>
                 <div class="action-description">
-                    <%= h(result.description) %>
+                    <%= sanitize result.description, :tags => %w(b br strong i), :attributes => %w(style) %>
                 </div>
 
                 <div class='action-details'>
