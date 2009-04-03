@@ -10,6 +10,10 @@ a, a:hover, a:visited {
     color: green;
 }
 
-h3 a {
+h3 a, a:hover, a:visited {
     color: blue;
+}
+
+.action-details {
+    margin-top: 5px;
 }

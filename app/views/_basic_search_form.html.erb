@@ -1,7 +1,7 @@
 <div class="yui-g" id="search_basic">
         <% form_tag({:controller => "search", :action => "results"}, :method => "get", :class => "search_form") do %>
                 Search Term:
-                <%= text_field_tag(:q, "", :size =>' 22') %>  
+                <%= text_field_tag(:q, params[:q], :size =>' 22') %>  
                 Created:
                 <select id="created" name="created">
                         <option value="all" selected="selected">Any Time</option>

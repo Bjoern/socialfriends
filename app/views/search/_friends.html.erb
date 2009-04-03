@@ -10,7 +10,7 @@
             <a href="http://twitter.com/<%= h(user.from_user) %>"><img src="<%= h(user.profile_image_url) %>" alt="<%= h(user.from_user) %>"/></a>
         </span>
         <span class="status-text">
-            <%= h(user.text) %>
+            <%= twitter_status user.from_user, h(user.text) %>
         </span>
     </li>
 <%- end -%>
