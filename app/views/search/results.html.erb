@@ -12,35 +12,37 @@
 	<div class="yui-gc action" id="action<%= i %>">
             <div class="yui-u first">
 
-                <a id="action_url<%= i %>" href="<%= h(result.url) %>" class="action-title"><%= h(result.title) %></a>
+                <h3><a id="action_url<%= i %>" href="<%= h(result.url) %>" class="action-title"><%= h(result.title) %></a></h3>
                 <div class="action-description">
-                    <%= result.description %>
+                    <%= h(result.description) %>
                 </div>
 
                 <div class='action-details'>
-                    <span class='action-type'><%= h(result.action_type[:name]) %></span>
+                    <span class='action-type action-info'><%= h(result.action_type['name']) %></span>
                     created
-                    <span class='action-created'><%= h(result.created_at) %></span>
+                    <span class='action-created action-info'><%= h(result.created_at) %></span>
                     on
-                    <a href="<%= h(result.site[:url]) %>"><%= h(result.site[:name]) %></a>
-                    <span class='action-hitcount'>
+                    <a href="<%= h(result.site['url']) %>"><%= h(result.site['name']) %></a>
+                    <span class='action-hitcount action-info'>
                         views:
                     </span>
                     <%= h(result.hit_count) %> 
-                    <span class='action-referrercount'>
+                    <span class='action-referrercount action-info'>
                         unique referrers:
                     </span>
                     <%= h(result.referrer_count) %>
                 </div>
-                <div>
-                    <a href="http://twitter.com/home?status=<%= CGI::escape("This looks like a worthy cause: #{h(result.url)} (Please Retweet)") %>">Tweet this action</a>
-                </div>
             </div>
             <div class="yui-u">
 
-                <div class="twitterers" id="twitterers<%= i %>">
+                <div class="twitterers">
                     <h3>People on Twitter referring to this action:</h3>
-                    <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %> Checking for references on Twitter...
+                    <div id="twitterers<%= i %>">
+                        <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %> Checking for references on Twitter...
+                    </div>
+                    <p>
+                        <a href="http://twitter.com/home?status=<%= CGI::escape("This looks like a worthy cause: #{h(result.url)} (Please Retweet)") %>" target="blank"><%= image_tag "tweet_this_Action.png", :alt =>"Tweet this action" %></a>                    
+                    </p>
                 </div>
             </div>
         </div>

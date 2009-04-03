@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
         <title>Find Social Friends</title>
-        <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css"/>
-        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/base/base-min.css"/> 
+        <%= stylesheet_link_tag "reset-fonts-grids.css" %>
+        <%= stylesheet_link_tag "base-min.css" %>
+        <%= stylesheet_link_tag "style" %>
         <%= javascript_include_tag 'prototype'%>
         <%- if @scripts -%>
             <%- @scripts.each do |script| -%>
@@ -22,7 +23,9 @@
                 <%= yield %>
             </div>
         </div>
-        <div id="ft"><p>Footer</p></div>
+        <div id="ft">
+            <p><a href="http://socialactions.com/welcome"><%= image_tag "socialactions_icon.png", :alt => "Solcial Actions" %></a> Created by Björn Günzel for the <a href="http://www.netsquared.org/changetheweb">Change The Web Challenge</a>. <a href="http://www.netsquared.org/projects/actionfriends">Vote for this entry</a>. <a href="http://twitter.com/Fractality">Follow me on Twitter</a></p>
+        </div>
     </body>
 </html>
 
