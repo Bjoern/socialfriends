@@ -1,4 +1,4 @@
-<div class='search_box' id='search_basic'>
+<div class="yui-g" id="search_basic">
         <% form_tag({:controller => "search", :action => "results"}, :method => "get", :class => "search_form") do %>
                 Search Term:
                 <%= text_field_tag(:q, "", :size =>' 22') %>  
