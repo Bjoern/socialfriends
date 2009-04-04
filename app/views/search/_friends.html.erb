@@ -2,16 +2,15 @@
     <span><%= h(flash[:notice]) %></span>
 <%- end -%>
 <%- @users = [] unless @users -%>
-<ul class="statuses">
+<div class="stati">
     <%= "<li>No references on Twitter found</li>" unless @users.size > 0 %>
 <%- @users.each do |user| -%>
-    <li class="status">
-        <span class="author">
-            <a href="http://twitter.com/<%= h(user.from_user) %>"><img src="<%= h(user.profile_image_url) %>" alt="<%= h(user.from_user) %>"/></a>
-        </span>
+    <div class="status">
+        <a href="http://twitter.com/<%= h(user.from_user) %>" class="author"><img src="<%= h(user.profile_image_url) %>" alt="<%= h(user.from_user) %>"/></a>
         <span class="status-text">
             <%= twitter_status user.from_user, h(user.text) %>
         </span>
-    </li>
+    </div>
+    <p class="break">&nbsp;</p>
 <%- end -%>
-</ul>
+</div>
