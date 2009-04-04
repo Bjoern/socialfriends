@@ -11,16 +11,14 @@ document.observe("dom:loaded", function() {
             }
             url = a.readAttribute('href');
             //alert('href'+url);
-            new Ajax.Updater('twitterers'+i, '/search/friends', {
+            new Ajax.Updater({success: 'twitterers'+i}, '/search/friends', {
                     parameters: { url: url},
                     method: 'get',
-                    //onFailure: function(xmlHttpRequest, x_json_response) {
-                    //    alert('failure: '+xmlHttpRequest);
-                    //},
-                    //onException: function(xmlHttpRequest, x_json_response) {
-                    //    alert('exception: '+xmlHttpRequest);
-                    //},
-
+                    onFailure: function(x){
+                        return function(xmlHttpRequest, x_json_response) {
+                            //alert('failure'+x+': '+xmlHttpRequest+", response: "+x_json_response);
+                            $('twitterers'+x).update("Sorry, an error occured during execution of this query.");}
+                    }(i)     
                 });
 
         }

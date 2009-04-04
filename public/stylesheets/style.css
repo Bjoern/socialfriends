@@ -35,3 +35,7 @@ h3 a, a:hover, a:visited {
 .status a, a:hover, a:visited {
     text-decoration: none;
 }
+
+.loading {
+    vertical-align: middle;
+}

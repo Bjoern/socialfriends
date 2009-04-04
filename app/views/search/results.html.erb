@@ -38,7 +38,7 @@
                 <div class="twitterers">
                     <h3>People on Twitter referring to this action:</h3>
                     <div id="twitterers<%= i %>">
-                        <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %> Checking for references on Twitter...
+                        <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %><span class="loading">Checking for references on Twitter...</span>
                     </div>
                     <p>
                         <a href="http://twitter.com/home?status=<%= CGI::escape("This looks like a worthy cause: #{h(result.url)} (Please Retweet)") %>" target="blank"><%= image_tag "tweet_this_action.png", :alt =>"Tweet this action" %></a>                    
