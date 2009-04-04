@@ -8,11 +8,7 @@ require 'uri'
 
 module SocialActions
     class Search
-        #include HTTParty
         include Enumerable
-
-        # basic_auth 'username', 'password'
-
 
         TYPE_GROUP_FUNDRAISER = 1 
         TYPE_CAMPAIGN = 2

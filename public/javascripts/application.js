@@ -17,7 +17,7 @@ document.observe("dom:loaded", function() {
                     onFailure: function(x){
                         return function(xmlHttpRequest, x_json_response) {
                             //alert('failure'+x+': '+xmlHttpRequest+", response: "+x_json_response);
-                            $('twitterers'+x).update("Sorry, an error occured during execution of this query.");}
+                            $('twitterers'+x).update("Sorry, this query did not execute successfully.");}
                     }(i)     
                 });
 

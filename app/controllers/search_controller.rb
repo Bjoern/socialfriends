@@ -34,7 +34,7 @@ class SearchController < ApplicationController
     end
 
     def friends
-        puts "friends action called with url #{params[:url]}"
+        #puts "friends action called with url #{params[:url]}"
         urls = []
         url = params[:url]
         if url
@@ -50,15 +50,15 @@ class SearchController < ApplicationController
         end
         pp urls
         @users = SocialActions::TwitterHelpers.find_people_tweeting_words(urls)
-        puts "friends: #{@users}"
+        #puts "friends: #{@users}"
         #pp @friends
         render :partial => "friends"
     end
 
-    def connection_refused
-        flash[:notice] = "Connection failed"
-        render :results
-    end
+    #def connection_refused
+    #    flash[:notice] = "Connection failed"
+    #    render :results
+    #end
 
 end
 

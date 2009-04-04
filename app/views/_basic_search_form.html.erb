@@ -2,16 +2,9 @@
         <% form_tag({:controller => "search", :action => "results"}, :method => "get", :class => "search_form") do %>
                 Search Term:
                 <%= text_field_tag(:q, params[:q], :size =>' 22') %>  
-                Created:
-                <select id="created" name="created">
-                        <option value="all" selected="selected">Any Time</option>
-                        <option value="30">Last 30 days</option>
-                        <option value="14">Last 14 days</option>
-                        <option value="7">Last week</option>
-                        <option value="1">Yesterday</option>
-                        <option value="0">Today</option>
-                </select>
-                &nbsp;
+                &nbsp;Created:
+                <%= select_tag(:created, options_for_select([['Any Time','all'],['Last 30 days','30'],['Last 14 days','14'],['Last week','7'],['Yesterday','1'],['Today','0']], params[:created])) %> 
+                               &nbsp;
                 <%= submit_tag("Search") %> 
         <% end %> 
 </div>
