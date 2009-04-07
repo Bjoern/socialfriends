@@ -40,6 +40,12 @@ function showMore(params) {
     }
 }
 
+function sampleSearch(query) {
+    var params = {q:query, page: 1};
+    $("searchResults").update();
+    findResults(params);
+}
+
 //execute search
 function search(event) {
     //alert("submit pressed");

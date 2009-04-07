@@ -18,7 +18,7 @@
             <div id="hd">
                 <h1>Find Social Friends</h1>
                 <p>
-                Search for social actions as seen on <a href="http://socialactions.com/welcome">SocialActions.com</a>. For each search result we will check Twitter for users referencing that action, so that you can hook up with people interested in the same kind of issues as you. <!--See an example search here: <a href="http://socialfriends.artifia.com/search/results?q=women&created=all">women</a-->
+                Search for social actions as seen on <a href="http://socialactions.com/welcome">SocialActions.com</a>. For each search result we will check Twitter for users referencing that action, so that you can hook up with people interested in the same kind of issues as you. See an example search here: <a href="javascript:sampleSearch('women');">women</a>
                 </p>
             </div>
             <div id="bd">
@@ -28,10 +28,10 @@
                 </div>
                 <div id="messages">
                     <div id="searchSpinner" style="display:none">
-                        <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %><span class="searching">Searching... (might take a while, the Social Actions server is under heavy load, but due to be upgraded soon)</span>
+                        <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %><span class="searching">Searching...</span>
                     </div>
                     <div id="loadError" style="display:none">
-                        Sorry, loading failed. Please try again later.
+                        Sorry, the request to Social Actions failed. Please try again later. 
                     </div>
                 </div>
             </div>
