@@ -99,9 +99,11 @@ module SocialActions
         def fetch
             @query[:q] = @query[:q].join(' ')
             q = @query.map{|key,value| "#{key}=#{CGI::escape(value) if value}"}.join('&')
+            puts "query: #{q}"
             result = Net::HTTP.get(URI::HTTP.build({:host => 'search.socialactions.com', :path => '/actions.json', :query => q}))
             results = JSON.parse(result)
             results.map{|r| SearchResult.new_from_hash(r)}
+            #pp results
         end
 
 

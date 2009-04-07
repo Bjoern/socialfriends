@@ -1,11 +1,11 @@
 <div class="yui-g" id="search_basic">
-        <% form_tag({:controller => "search", :action => "results"}, :method => "get", :class => "search_form") do %>
+    <% form_tag({:controller => "search", :action => "results"}, :method => "get", :class => "search_form", :id => "searchForm") do %>
                 Search Term:
                 <%= text_field_tag(:q, params[:q], :size =>' 22') %>  
-                &nbsp;Created:
+                &nbsp;Created Since:
                 <%= select_tag(:created, options_for_select([['Any Time','all'],['Last 30 days','30'],['Last 14 days','14'],['Last week','7'],['Yesterday','1'],['Today','0']], params[:created])) %> 
                                &nbsp;
-                <%= submit_tag("Search") %> 
+                <%= submit_tag "Search", :id => 'submitButton' %> 
         <% end %> 
 </div>
 

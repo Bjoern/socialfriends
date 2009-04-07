@@ -23,12 +23,22 @@
             </div>
             <div id="bd">
                 <%= render :partial => "/basic_search_form" %>
-                <%= yield %>
+                <div id='searchResults'>
+                    <%= yield %>
+                </div>
+                <div id="messages">
+                    <div id="searchSpinner" style="display:none">
+                        <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %><span class="searching">Searching...</span>
+                    </div>
+                    <div id="loadError" style="display:none">
+                        Sorry, loading failed. Please try again later.
+                    </div>
+                </div>
             </div>
         </div>
         <div id="ft">
             <p>
-            <a href="http://socialactions.com/welcome"><%= image_tag "socialactions_icon.png", :alt => "Solcial Actions" %></a>
+            <a href="http://socialactions.com/welcome"><%= image_tag "socialactions_icon.png", :alt => "Social Actions" %></a>
             </p>
             <p>
             Created by Björn Günzel for the <a href="http://www.netsquared.org/changetheweb">Change The Web Challenge</a>. <a href="http://www.netsquared.org/projects/actionfriends">Please give me a star</a>. <a href="http://twitter.com/Fractality">Follow me on Twitter</a>

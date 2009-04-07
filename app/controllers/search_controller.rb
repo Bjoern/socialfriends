@@ -11,9 +11,11 @@ class SearchController < ApplicationController
     end
 
     def results
+        params[:page] = 1 unless params[:page] 
         search = SocialActions::Search.new(params[:q])
         search.created(params[:created])
         search.limit(params[:limit])
+        search.page(params[:page])
         @results = search.fetch
         @results = [] unless @results
         #pp @results
@@ -31,6 +33,11 @@ class SearchController < ApplicationController
                 end
             end
         end
+
+        if (request.xhr?)
+            render :layout => false
+        end
+
     end
 
     def friends

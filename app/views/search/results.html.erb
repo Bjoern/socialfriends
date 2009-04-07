@@ -1,50 +1,60 @@
 <%- @scripts = [] unless @scripts -%>
 <%- @scripts << 'application' -%>
-<h1>Results</h1>
 <%- if flash[:notice] -%>
     <div class="flash_notice"><%= h(flash[:notice]) %></div>
 <%- end -%>
-<div id='search_results'>
-    <%- @results = [] unless @results -%>
-    <%= "No search results found" unless @results.size > 0 %>
-    <%- @results.each_index do |i| -%>
-        <%- result = @results[i] -%>
-	<div class="yui-gc action" id="action<%= i %>">
-            <div class="yui-u first">
+<%- params[:page] = 1 unless params[:page] -%>
+<%- if @results.size == 0 -%>
+    <p>
+        <%- if params[:page] && params[:page] > 1 -%>
+             <%= "No more results found" %>
+        <%- else -%>
+            <%= "No search results found" %>
+        <%- end -%>
+    </p>
+<%- end -%>
+<%- @results.each_index do |i| -%>
+    <%- result = @results[i] -%>
+    <div class="yui-gc action" id="action<%= i %>">
+        <div class="yui-u first">
 
-                <h3><a id="action_url<%= i %>" href="<%= h(result.url) %>" class="action-title"><%= h(result.title) %></a></h3>
-                <div class="action-description">
-                    <%= sanitize result.description, :tags => %w(b br strong i), :attributes => %w(style) %>
-                </div>
-
-                <div class='action-details'>
-                    <span class='action-type action-info'><%= h(result.action_type['name']) %></span>
-                    <span>Created</span>
-                    <span class='action-created action-info'><%= h(result.created_at) %></span>
-                    on
-                    <a href="<%= h(result.site['url']) %>"><%= h(result.site['name']) %></a>
-                    <span>Views: </span>
-                    <span class="action-hitcount action-info">
-                        <%= h(result.hit_count) %> 
-                    </span>
-                    <span>
-                        Unique Referrers:
-                    </span>
-                    <span class="action-info"><%= h(result.referrer_count) %></span>
-                </div>
+            <h3><a id="action_url<%= "#{h(params[:page])}_#{i}" %>" href="<%= h(result.url) %>" class="action-title"><%= h(result.title) %></a></h3>
+            <div class="action-description">
+                <%= sanitize result.description, :tags => %w(b br strong i), :attributes => %w(style) %>
             </div>
-            <div class="yui-u">
 
-                <div class="twitterers">
-                    <h3>People on Twitter referring to this action:</h3>
-                    <div id="twitterers<%= i %>">
-                        <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %><span class="loading">Checking for references on Twitter...</span>
-                    </div>
-                    <p>
-                        <a href="http://twitter.com/home?status=<%= CGI::escape("This looks like a worthy cause: #{h(result.url)} (Please Retweet)") %>" target="blank"><%= image_tag "tweet_this_action.png", :alt =>"Tweet this action" %></a>                    
-                    </p>
-                </div>
+            <div class='action-details'>
+                <span class='action-type action-info'><%= h(result.action_type['name']) %></span>
+                <span>Created</span>
+                <span class='action-created action-info'><%= h(result.created_at) %></span>
+                on
+                <a href="<%= h(result.site['url']) %>"><%= h(result.site['name']) %></a>
+                <span>Views: </span>
+                <span class="action-hitcount action-info">
+                    <%= h(result.hit_count) %> 
+                </span>
+                <span>
+                    Unique Referrers:
+                </span>
+                <span class="action-info"><%= h(result.referrer_count) %></span>
             </div>
         </div>
-    <%- end -%>
+        <div class="yui-u">
+
+            <div class="twitterers">
+                <h3>People on Twitter referring to this action:</h3>
+                <div id="twitterers<%= "#{h(params[:page])}_#{i}" %>">
+                    <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %><span class="loading">Checking for references on Twitter...</span>
+                </div>
+                <p>
+                <a href="http://twitter.com/home?status=<%= CGI::escape("This looks like a worthy cause: #{h(result.url)} (Please Retweet)") %>" target="blank"><%= image_tag "tweet_this_action.png", :alt =>"Tweet this action" %></a>                    
+                </p>
+            </div>
+        </div>
+    </div>
+<%- end -%>
+<%- if @results.size == 10 -%>
+<div id="showMore">
+    <%= submit_tag "more results", :id => 'moreButton' %> 
 </div>
+<%- end -%>

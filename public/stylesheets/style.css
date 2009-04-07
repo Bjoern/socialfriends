@@ -39,3 +39,10 @@ h3 a, a:hover, a:visited {
 .loading {
     vertical-align: middle;
 }
+
+#loadError {
+    color: red;
+}
+
+#searchSpinner, #loadError {
+}
