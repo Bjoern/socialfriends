@@ -17,14 +17,14 @@ function searchTwitterUsers(pageNum) {
             }
             url = a.readAttribute('href');
             //alert('href'+url);
-            new Ajax.Updater({success: 'twitterers'+pageNum+'_'+i}, '/search/friends', {
+            var id = 'twitterers'+pageNum+'_'+i;
+            new Ajax.Updater({success: id}, '/search/friends', {
                     parameters: { url: url},
                     method: 'get',
-                    onFailure: function(x){
+                    onFailure: function(id_value){
                         return function(xmlHttpRequest, x_json_response) {
-                            //alert('failure'+x+': '+xmlHttpRequest+", response: "+x_json_response);
-                            $('twitterers'+x).update("Sorry, this query did not execute successfully.");}
-                    }(i)     
+                            $(id_value).update("Sorry, this query did not execute successfully.");}
+                    }(id)     
                 });
 
         }
