@@ -18,9 +18,10 @@ Logger.debug("twitter_url_references.js loaded");
 var bitly = {
 
     MAX_OPEN_REQUESTS: 5,
-    BITLY_TIMEOUT: 20000,//timeout for waiting for a free slot for a bitly call
+    BITLY_TIMEOUT: 30000,//timeout for waiting for a free slot for a bitly call
 
     openRequestsCount: 0,
+    calls: 0,
 
     /*
      * timeOfFirstAttempt can be null, will be filled in automatically in subsequent attempts
@@ -29,17 +30,23 @@ var bitly = {
         Logger.debug("callBitly, method: "+method+", params: "+params+", openRequestsCount: "+this.openRequestsCount);
 
         //try to make sure that there are no more than 5 requests to bit.ly at the same time.
+        var elapsedTime = timeOfFirstAttempt ? new Date().getTime() - timeOfFirstAttempt : 0;
         if(this.openRequestsCount >= this.MAX_OPEN_REQUESTS) {
-            if(timeOfFirstAttempt && new Date().getTime() - timeOfFirstAttempt > this.BITLY_TIMEOUT) {
-                Logger.debug("timeout for bitly call "+method+", params: "+params);
+            if(elapsedTime > this.BITLY_TIMEOUT) {
+                Logger.debug("timeout for bitly call "+method+", params: "+params+", calls: "+bitly.calls+", time: "+elapsedTime);
                 onFailure(null);
             } else {
                 //try again in 800 milliseconds
-                window.setTimeout(this.callBitly.bind(this, method, params, onSuccess, onFailure, timeOfFirstAttempt || new Date().getTime()), 800);
+                
+                Logger.debug("waiting for bitly slot for call "+method+", params: "+params+", calls: "+bitly.calls+", time: "+elapsedTime);
+
+                window.setTimeout(this.callBitly.bind(this, method, params, onSuccess, onFailure, timeOfFirstAttempt || new Date().getTime()), 100);
             }
 
             return;
         }     
+
+        Logger.debug("found a bitly call slot, call: "+(++bitly.calls));
 
         params.version = "2.0.1",
         params.login = "socialfriends",
@@ -50,12 +57,12 @@ var bitly = {
 
         var successFn = function(result) {
             Logger.debug("results for callBitly, method: "+method+", params: "+params+", data: "+result);
-            this.openRequestCount--;
+            this.openRequestsCount--;
             onSuccess(result);
          }.bind(this);
 
         var errorFn = function(result) {
-           this.openRequestCount--;
+           this.openRequestsCount--;
            onFailure(result, onFailure);
         }.bind(this);
 
@@ -81,14 +88,11 @@ var bitly = {
 
     stats: function(hash, onSuccess, onFailure) {
         this.callBitly("stats", {hash: hash}, onSuccess, onFailure); 
-            //function(data) {
-            //    onSuccess(data);
-            //}, onFailure);
     },
 
     expand: function(hash, onSuccess, onFailure) {
         this.callBitly("expand",{hash:hash}, function(data){    
-            onSuccess((data && "OK" === data.statusCode) ? data.results[hash] : null);
+                onSuccess((data && "OK" === data.statusCode) ? data.results[hash] : null);
             }, onFailure);
     }
 
@@ -98,11 +102,11 @@ var bitly = {
 var TwitterURLReferences = Class.create(
     {
    
-/*
- * url: the url we are looking for
- * containerId: id of the dom element to insert tweets into (or the failure message)
- * spinnerId: id of the ajax spinner graphic, to show and hide as needed.
- */
+        /*
+         * url: the url we are looking for
+         * containerId: id of the dom element to insert tweets into (or the failure message)
+         * spinnerId: id of the ajax spinner graphic, to show and hide as needed.
+         */
         initialize: function(url, containerId, spinnerId) {
             Logger.debug("create twitterReferences");
 
@@ -143,9 +147,12 @@ var TwitterURLReferences = Class.create(
         Logger.debug("checkRequestsFinished, requestsCount: "+this.requestsCount+", errors: "+this.errorsCount+", success: "+this.successCount);
         if(this.requestsCount === 0) {
             $(this.spinnerId).hide();
+            if(this.friends.length === 0) {
+                jQuery('#'+this.containerId).append('<span class="status-text">No references found. Please tweet this action and be the first.</span>');
+            }
             if(this.errorsCount > 0) {
                 var msg = this.successCount > 0 ? "some requests failed" : "querying failed";
-                jQuery('#'+containerId).append('<span class="errorMessage">'+msg+'</span>');
+                jQuery('#'+this.containerId).append('<span class="errorMessage">'+msg+'</span>');
             }
         }
     },
@@ -197,14 +204,18 @@ var TwitterURLReferences = Class.create(
 
         var params = {url: this.url};
 
-        var successFn = function(transport){
-            Logger.debug("urls search succeeded for "+this.url+", results: "+transport.responseJSON);  
-            this.findURLReferencesAndDisplayFriends(transport.responseJSON);
+        /*var successFn = function(data) {
+            
+        }.bind(this);
+    */
+        var successFn = function(data){
+            Logger.debug("urls search succeeded for "+this.url+", results: "+data);  
+            this.findURLReferencesAndDisplayFriends(data);
         }.bind(this);
 
-        Logger.debug("before fail");
+        Logger.debug("before failFn definition");
 
-        var failFn = function(transport) {
+        var failFn = function(data) {
             Logger.debug("urls search failed for "+this.url);
             //stick to the program, but only use the original url (as longURL, because that is the actual "main" url)
             this.errorsCount++;
@@ -215,13 +226,14 @@ var TwitterURLReferences = Class.create(
         Logger.debug("before ajax request for urls for "+this.containerId);
 
         //TODO make JSONP call
-        new Ajax.Request("/search/urls.json", {
-             parameters: params,
-             method: 'get',
-             sanitizeJSON: true,
-             onFailure: failFn,
-             onSuccess: successFn
-         });
+        var url = "/search/urls.json?"+jQuery.param(params)+"&callback=?";
+    
+        jQuery.ajax({
+            url: url, 
+            success: successFn, 
+            error: failFn,
+            dataType: 'jsonp'
+        });
     },
 
     findBitlyReferences: function(url, onSuccess, onFailure) {

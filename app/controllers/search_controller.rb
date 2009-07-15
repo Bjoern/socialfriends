@@ -88,7 +88,7 @@ class SearchController < ApplicationController
 
         pp result
 
-        render :json => result
+        render :json => result, :callback => params[:callback]
     end
 
     #def connection_refused
