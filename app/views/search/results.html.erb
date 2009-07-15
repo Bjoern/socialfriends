@@ -44,6 +44,8 @@
             <div class="twitterers">
                 <h3>People on Twitter referring to this action:</h3>
                 <div id="twitterers<%= "#{h(params[:page])}_#{i}" %>">
+                </div>
+                <div id="spinner<%= "#{h(params[:page])}_#{i}" %>">
                     <%= image_tag 'ajax-loader.gif', :alt => 'Loading' %><span class="loading">Checking for references on Twitter...</span>
                 </div>
                 <p>
