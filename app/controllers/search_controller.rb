@@ -41,7 +41,7 @@ class SearchController < ApplicationController
     end
 
     def friends
-        #puts "friends action called with url #{params[:url]}"
+        puts "friends action called with url #{params[:url]}"
         urls = []
         url = params[:url]
         if url
@@ -57,9 +57,38 @@ class SearchController < ApplicationController
         end
         pp urls
         @users = SocialActions::TwitterHelpers.find_people_tweeting_words(urls)
-        #puts "friends: #{@users}"
-        #pp @friends
-        render :partial => "friends"
+        puts "friends: #{@users}"
+
+        @users.each{|user| puts "user: "+user.inspect()}
+
+        respond_to do |format| 
+            format.html {render :partial => "friends"}
+            format.json {render :json => @users} 
+        end 
+    end
+
+    def urls
+
+        url = params[:url]
+        result = {:shorturls => [], :longURL => url};
+
+        if url
+            
+            #baseurls << url
+            result[:shorturls] << SocialActions::UrlHelpers.get_tinyurl(url)
+
+            resolved_url =  SocialActions::UrlHelpers.resolve_redirects(url)
+
+            if !url.eql? resolved_url
+                result[:longURL] = resolved_url
+                result[:originalURL] = url
+                result[:shorturls] << SocialActions::UrlHelpers.get_tinyurl(resolved_url)
+            end
+        end
+
+        pp result
+
+        render :json => result
     end
 
     #def connection_refused

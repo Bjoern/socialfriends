@@ -98,7 +98,7 @@ module SocialActions
         # If you want to get results do something other than iterate over them.
         def fetch
             @query[:q] = @query[:q].join(' ')
-            q = @query.map{|key,value| "#{key}=#{CGI::escape(value) if value}"}.join('&')
+            q = @query.map{|key,value| "#{key}=#{CGI::escape(value.to_s) if value}"}.join('&')
             puts "query: #{q}"
             result = Net::HTTP.get(URI::HTTP.build({:host => 'search.socialactions.com', :path => '/actions.json', :query => q}))
             results = JSON.parse(result)

@@ -6,7 +6,7 @@ module ApplicationHelper
     #assume text is already escaped with h() or something, just take care of links
 
     def twitter_status(user, msg)
-        m = msg.gsub(URL_REGEXP, '<a href="\1">\1<ga>')
+        m = msg.gsub(URL_REGEXP, '<a href="\1">\1<ga>') #FIXME bug: if url does not start with protocol (http etc), link will be faulty.
         #m = msg
         m = m.gsub(USER_REF_REGEXP, '@<a href="http://twitter.com/\1" target="blank">\1</a>')
         "#{link_to_twitter_profile user} #{m}"
