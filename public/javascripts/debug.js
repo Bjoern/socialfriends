@@ -1,4 +1,8 @@
-var Logger = {
+if(!this.console) {
+    this.console = null;
+}
+
+var Logger =  {
     DEBUG: 4,
     WARN: 3,
     INFO: 2,
@@ -35,5 +39,5 @@ var Logger = {
             console.error.apply(console, arguments);
         }
     }
-} 
+};
 
