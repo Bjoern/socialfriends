@@ -12,7 +12,7 @@ document.observe("dom:loaded", function() {
 
 function searchTwitterUsers(pageNum) {
         //check for all url's with id of the form action_url#num, and try to load twitter friends for them
-        Logger.debug("searchTwitterUsers, page "+pageNum);
+        Logger.info("searchTwitterUsers, page "+pageNum);
 
         var i = 0;
         loop: for(;i<100;i++) {

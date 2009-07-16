@@ -199,7 +199,7 @@ var TwitterURLReferences = Class.create(
         //check for bit.ly references of longURL and originalURL, and search for tinyurl references directly.
         //later also check other url shorteners for longURL and originalURL
 
-        Logger.debug("find references for url "+this.url);
+        Logger.info("find references for url "+this.url);
 
         var params = {url: this.url};
 
