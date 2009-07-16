@@ -34,7 +34,7 @@ var bitly = {
         if(this.openRequestsCount >= this.MAX_OPEN_REQUESTS) {
             if(elapsedTime > this.BITLY_TIMEOUT) {
                 Logger.debug("timeout for bitly call "+method+", params: "+params+", calls: "+bitly.calls+", time: "+elapsedTime);
-                onFailure(null);
+                onFailure("bitly timeout");
             } else {
                 //try again in 800 milliseconds
                 
@@ -63,7 +63,7 @@ var bitly = {
 
         var errorFn = function(result) {
            this.openRequestsCount--;
-           onFailure(result, onFailure);
+           onFailure(result);
         }.bind(this);
 
         var url = "http://api.bit.ly/"+method+"?"+jQuery.param(params)+"&callback=?";
@@ -137,7 +137,8 @@ var TwitterURLReferences = Class.create(
           }.bind(this), onFailure);
     },
     
-    requestError: function(transport) {
+    requestError: function(msg) {
+        Logger.debug("requestError, msg: "+msg);
         this.requestsCount--;
         this.errorsCount++;
         this.checkRequestsFinished();
@@ -168,7 +169,6 @@ var TwitterURLReferences = Class.create(
                 var tweet = (tweets && tweets.size() > 0) ? tweets[0] : null;
                 onSuccess(tweet);
             } else {
-                //console.dir(tweets);
                 var text = tweets[index].text;
                 //find bitly hash
                 //TODO we only look for the first bit.ly URL - minor flaw we'll live with for now, multiple URLs should be rare
@@ -193,7 +193,6 @@ var TwitterURLReferences = Class.create(
      * main entry point after creation of object: this should trigger searching of all URL variations and displaying the references
      */
     findReferences: function() {
-
         //First check our own server for variants of the URLs that we can not get otherwise: see if the original URL is already shortened
         //and if so, provide the corresponding longURL. Also get tinyurls for both original url and longURL if applicable
         //with that list of URLs, run through the real program:
@@ -225,7 +224,6 @@ var TwitterURLReferences = Class.create(
 
         Logger.debug("before ajax request for urls for "+this.containerId);
 
-        //TODO make JSONP call
         var url = "/search/urls.json?"+jQuery.param(params)+"&callback=?";
     
         jQuery.ajax({
@@ -237,7 +235,7 @@ var TwitterURLReferences = Class.create(
     },
 
     findBitlyReferences: function(url, onSuccess, onFailure) {
-        Logger.debug("find bitly references for "+url);
+        Logger.debug("find bitly references for "+url+", this: "+this);
         bitly.shorten(url, function(hash) {
             if(hash){
                 bitly.stats(hash, function(data){
@@ -272,33 +270,44 @@ var TwitterURLReferences = Class.create(
     },
 
     searchTwitter: function(params, onSuccess, onFailure) {
-        jQuery.getJSON("http://search.twitter.com/search.json?"+jQuery.param(params)+"&callback=?", function(data){
+        Logger.debug("search twitter, : "+params.q);
+
+        var url ="http://search.twitter.com/search.json?"+jQuery.param(params)+"&callback=?";
+    
+        jQuery.ajax({
+            url: url, 
+            success: function(data) {
+                Logger.debug("success searching Twitter for "+params);
                 //fixme better error handling
                 if(data && data.results) {
                     onSuccess(data.results);
                 } else {
+                    Logger.debug("but no results on Twitter");
                     onFailure();
                 }
-            });
+            }, 
+            error: onFailure,
+            dataType: 'jsonp'
+        });
+
     },
    
     findURLReferencesAndDisplayFriends: function(urls) {
-        Logger.debug("find references for "+this.containerId+", urls data: longURL: "+urls.longURL+", shorturls: "+urls.shorturls+", originalURL: "+urls.originalURL);
-    
+        Logger.debug("findURLReferencesAndDisplayFriends for "+this.containerId+", urls data: longURL: "+urls.longURL+", shorturls: "+urls.shorturls+", originalURL: "+urls.originalURL+", this: "+this);
         //determine number of open requests beforehand, to prevent accidentally ending before all requests have run
         this.requestsCount = 2+(urls.shorturls ? urls.shorturls.length : 0);
 
         if(urls.originalURL) {
             this.findBitlyReferences(urls.originalURL, function(reference) {
                this.displayFriend(reference);
-           }.bind(this), this.requestError.bind(this));
+           }.bind(this), this.requestError.bind(this, "findBitlyRerferences original URL"));
         } else {
             this.requestsCount--;
         }
 
         this.findBitlyReferences(urls.longURL, function(reference) {
             this.displayFriend(reference);
-        }.bind(this), this.requestError.bind(this));
+        }.bind(this), this.requestError.bind(this, "findBitlyRerferences long URL"));
 
         if(urls.shorturls) {
             //todo search references to shorturls
@@ -307,7 +316,23 @@ var TwitterURLReferences = Class.create(
     },
 
     findShortURLReferences: function(shorturl) {
-        this.displayFriend(null);//TODO dummy to maintain correct requestsCount
+        Logger.debug("findShortUrlRefs for "+shorturl+", this: "+this);
+
+        var onSuccess = function(results) {
+            if(results && results.length > 0) {
+                this.requestsCount += results.length -1;//TODO bit of a hack as no actual requests are created
+                results.each(function(result){this.displayFriend(result);}.bind(this));
+            } else {
+                //call displayFriend to maintain correct count of open request "threads"
+                this.displayFriend(null);
+            }
+        }.bind(this);
+
+        var onFailure = function(msg) {
+            this.requestError("findShortUrlReferences: "+shorturl);
+        }.bind(this);
+
+        this.searchTwitter({q:shorturl}, onSuccess, onFailure);
     },
 
     displayFriend: function(friend) {

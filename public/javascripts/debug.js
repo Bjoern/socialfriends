@@ -4,7 +4,7 @@ var Logger = {
     INFO: 2,
     ERROR: 1,
     
-    logLevel: 4,
+    logLevel: 0,
     
     log: function(){
         if(console) {
